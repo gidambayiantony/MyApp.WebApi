@@ -45,3 +45,4 @@ C:\Users\ADMIN\Desktop\work\stockappbackend\MyApp.WebApi\obj\Debug\net9.0\refint
 C:\Users\ADMIN\Desktop\work\stockappbackend\MyApp.WebApi\obj\Debug\net9.0\MyApp.WebApi.pdb
 C:\Users\ADMIN\Desktop\work\stockappbackend\MyApp.WebApi\obj\Debug\net9.0\MyApp.WebApi.genruntimeconfig.cache
 C:\Users\ADMIN\Desktop\work\stockappbackend\MyApp.WebApi\obj\Debug\net9.0\ref\MyApp.WebApi.dll
+C:\Users\ADMIN\Desktop\work\stockappbackend\MyApp.WebApi\obj\Debug\net9.0\MyApp.WebApi.sourcelink.json
