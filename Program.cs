@@ -26,7 +26,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAngularApp",
         policy =>
         {
-            policy.WithOrigins("http://localhost:8100")
+            policy.WithOrigins("http://localhost:8100","http://localhost:4200")
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
@@ -59,7 +59,7 @@ app.Run();
     {
         var affiliate1 = new Affiliate
         {
-            Id = 1,
+            Id = "1",
             Username = "JohnAffiliate",
             EmailAddress = "john@example.com",
             Location = "Kisumu",
@@ -68,7 +68,7 @@ app.Run();
 
         var affiliate2 = new Affiliate
         {
-            Id = 2,
+            Id = "2",
             Username = "AliceAffiliate",
             EmailAddress = "alice@example.com",
             Location = "Eldoret",
@@ -85,7 +85,7 @@ app.Run();
             DateJoined = DateTime.UtcNow.AddDays(-30),
             AppVersion = "1.0.0",
             Country = "Kenya",
-            RefId = affiliate1.Id // Link to Affiliate
+            AffId = affiliate1.Id // Link to Affiliate
         };
 
         var customer2 = new Customer
@@ -98,7 +98,7 @@ app.Run();
             DateJoined = DateTime.UtcNow.AddDays(-40),
             AppVersion = "1.2.0",
             Country = "Tanzania",
-            RefId = affiliate2.Id // Link to Affiliate
+            AffId = affiliate2.Id // Link to Affiliate
         };
 
          var customer3 = new Customer
@@ -163,8 +163,8 @@ app.Run();
         };
 
         // Save to DB
-        context.Affiliates.AddRange(affiliate1, affiliate2);
-        context.Customers.AddRange(customer1, customer2, customer3);
+        context.Affiliates.AddRange( );
+        context.Customers.AddRange( );
         context.Shops.AddRange(shops);
         context.SaveChanges();
     }

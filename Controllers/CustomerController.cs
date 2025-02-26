@@ -22,8 +22,36 @@ public class CustomerController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Customer>> CreateCustomer(Customer customer)
     {
+         if (!string.IsNullOrEmpty(customer.AffId))
+    {
+        var affiliate = await _context.Affiliates.FindAsync(customer.AffId);
+        if (affiliate == null)
+        {
+            return BadRequest("Invalid Affiliate ID");
+        }
+    }
         _context.Customers.Add(customer);
         await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(GetCustomers), new { id = customer.Id }, customer);
+        return Ok(customer);
     }
+
+    [HttpPost("{customerId}/shops")]
+public async Task<ActionResult<Customer>> CreateShop(int customerId, [FromBody] Shop shop)
+{
+    var customer = await _context.Customers.Include(c => c.Shops).FirstOrDefaultAsync(c => c.Id == customerId);
+
+    if (customer == null)
+    {
+        return NotFound("Customer not found");
+    }
+
+    // Add the shop to the customer's Shops list
+    customer.Shops.Add(shop);
+    
+    // Save changes to the database
+    await _context.SaveChangesAsync();
+
+    return Ok(customer);
+}
+
 }
