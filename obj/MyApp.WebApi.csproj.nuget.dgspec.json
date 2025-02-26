@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/anthonygidambayii/Desktop/job/MyApp.WebApi/MyApp.WebApi.csproj": {}
+    "C:\\Users\\ADMIN\\Desktop\\work\\stockappbackend\\MyApp.WebApi\\MyApp.WebApi.csproj": {}
   },
   "projects": {
-    "/home/anthonygidambayii/Desktop/job/MyApp.WebApi/MyApp.WebApi.csproj": {
+    "C:\\Users\\ADMIN\\Desktop\\work\\stockappbackend\\MyApp.WebApi\\MyApp.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/anthonygidambayii/Desktop/job/MyApp.WebApi/MyApp.WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\Desktop\\work\\stockappbackend\\MyApp.WebApi\\MyApp.WebApi.csproj",
         "projectName": "MyApp.WebApi",
-        "projectPath": "/home/anthonygidambayii/Desktop/job/MyApp.WebApi/MyApp.WebApi.csproj",
-        "packagesPath": "/home/anthonygidambayii/.nuget/packages/",
-        "outputPath": "/home/anthonygidambayii/Desktop/job/MyApp.WebApi/obj/",
+        "projectPath": "C:\\Users\\ADMIN\\Desktop\\work\\stockappbackend\\MyApp.WebApi\\MyApp.WebApi.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ADMIN\\Desktop\\work\\stockappbackend\\MyApp.WebApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/anthonygidambayii/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,7 +38,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -76,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.112/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
