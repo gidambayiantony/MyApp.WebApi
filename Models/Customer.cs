@@ -11,8 +11,8 @@ public class Customer
     public string? Country { get; set; }
     
     // Reference ID linking to Affiliate
-    public int RefId { get; set; }
-    public Affiliate? Affiliate { get; set; }
+    public string? AffId { get; set; }
+    public virtual  Affiliate? Affiliate { get; set; }
 
     // One-to-Many: A customer can own multiple shops
     public List<Shop> Shops { get; set; } = new();

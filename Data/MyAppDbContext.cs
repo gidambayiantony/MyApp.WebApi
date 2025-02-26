@@ -16,5 +16,10 @@ public class AppDbContext : DbContext
             .WithMany(c => c.Shops)
             .HasForeignKey(s => s.CustomerId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Customer>()
+            .HasOne(c => c.Affiliate)
+            .WithMany(a => a.Customers)
+            .HasForeignKey(c => c.AffId);
     }
 }
