@@ -15,13 +15,15 @@ public class AffiliateController : ControllerBase
     {
         _context = context;
     }
-
+   //get all affiliates
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Affiliate>>> GetAffiliates()
     {
         return await _context.Affiliates.Include(a => a.Customers).ThenInclude(c => c.Shops).ToListAsync();
     }
+ 
 
+ //get an affiliate by id 
     [HttpGet("{id}")]
     public async Task<ActionResult<Affiliate>> GetAffiliate(string id)
     {
@@ -32,6 +34,7 @@ public class AffiliateController : ControllerBase
 
         return affiliate;
     }
+
     //create an affiliate with autogen id
     [HttpPost]
     public async Task<ActionResult<Affiliate>> CreateAffiliate(Affiliate affiliate)
@@ -42,6 +45,7 @@ public class AffiliateController : ControllerBase
         await _context.SaveChangesAsync();
         return CreatedAtAction(nameof(GetAffiliate), new { id = affiliate.Id }, affiliate);
     }
+
     // ✅ Get all customers who signed up using a specific affiliate's referral ID
     [HttpGet("{affId}/customers")]
     public async Task<ActionResult<IEnumerable<Customer>>> GetReferredCustomers(string affId)
@@ -71,5 +75,29 @@ public class AffiliateController : ControllerBase
 
         return Ok(shops);
     }
+
+    [HttpPut("{customerId}/assign-affiliate/{affiliateId}")]
+public async Task<IActionResult> AssignAffiliateToCustomer(int customerId, string affiliateId)
+{
+    var customer = await _context.Customers.FindAsync(customerId);
+    if (customer == null)
+    {
+        return NotFound(new { message = "Customer not found" });
+    }
+
+    var affiliate = await _context.Affiliates.FindAsync(affiliateId);
+    if (affiliate == null)
+    {
+        return NotFound(new { message = "Affiliate not found" });
+    }
+
+    // Assign the affiliate ID to the customer
+    customer.AffId = affiliateId;
+
+    await _context.SaveChangesAsync();
+
+    return Ok(new { message = "Affiliate assigned successfully", customer });
+}
+
 
 }
