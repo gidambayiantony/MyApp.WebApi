@@ -1,6 +1,10 @@
 namespace MyApp.WebApi.Models;
 public class Affiliate
 {
+
+    public int _Id { get; set; }
+
+    public string Affiliate_Id { get; set; } = null!;
     public string? Id { get; set; }
     public string? Username { get; set; }
     public string? EmailAddress { get; set; }
