@@ -75,6 +75,31 @@ public class AffiliateController : ControllerBase
  
 
 //  //get an affiliate by id 
+
+ [HttpGet("GetAffiliateById/{affiliateId}")]
+    public async Task<ActionResult<AffiliateResponseList>> GetAffiliateById(string affiliateId)
+    {
+        var affiliate = await _context.Affiliates.Include(a => a.User)
+            .FirstOrDefaultAsync(a => a.Affiliate_Id == affiliateId);
+
+        if (affiliate == null)
+            return NotFound(new { message = "Affiliate not found" });
+
+        var response = new AffiliateResponseList
+        {
+            Affiliate_Id = affiliate.Affiliate_Id,
+            Email = affiliate.User.Email,
+            UserName = affiliate.User.Username,
+            Phone = affiliate.User.Phone,
+            CountryCode = affiliate.User.CountryCode,
+            CreatedOn = affiliate.User.Datejoined,
+            Id = affiliate.Id,
+            CountryName = "Nigeria"
+        };
+
+        return Ok(response);
+    }
+
 //     [HttpGet("{id}")]
 //     public async Task<ActionResult<Affiliate>> GetAffiliate(int id)
 //     {
