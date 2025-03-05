@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 // using MyApp.Domain.Core.Models;
 // using MyApp.Domain.Enums;
-namespace MyApp.Models;
+namespace MyApp.WebApi.Models;
 
     //[MaxLength(10), MinLength(5)]
 

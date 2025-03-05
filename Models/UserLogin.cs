@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MyApp.Models;
+namespace MyApp.WebApi.Models;
 
     [Table("userlogin")]
     public partial class UserLogin

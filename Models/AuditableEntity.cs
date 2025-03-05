@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
-namespace MyApp.Models;
+namespace MyApp.WebApi.Models;
 
 public class AuditableEntity 
 {
