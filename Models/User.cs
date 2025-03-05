@@ -49,12 +49,14 @@ namespace MyApp.WebApi.Models;
         [Column(TypeName = "varchar(20)")]
         public string? Rolename { get; set; } 
         public string Userid { get; set; } = null!;
+         [NotMapped]
+        public  Affiliate? Affiliate { get; set; } 
 
         // [DefaultValue("false")]
         // public bool IsLocked { get; set; } = false;
 
-        // [NotMapped]
-        // public ShopOwners ShopOwners { get; set; } = null!;
+        [NotMapped]
+        public ShopOwners ShopOwners { get; set; } = null!;
         // [NotMapped]
         // public virtual ShopAttedants ShopAttedants { get; set; } = null!;
         

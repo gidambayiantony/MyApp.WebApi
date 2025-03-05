@@ -72,6 +72,18 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql.Json.Microsoft": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql.Json.Newtonsoft": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "SwashBuckle.AspNetCore": {
               "target": "Package",
               "version": "[7.2.0, )"

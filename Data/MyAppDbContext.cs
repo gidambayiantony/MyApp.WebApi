@@ -5,8 +5,14 @@ using MyApp.WebApi.Models;
 public class AppDbContext : DbContext
 {
     public DbSet<Affiliate> Affiliates { get; set; }
-    public DbSet<Customer> Customers { get; set; }
+
+    public DbSet<ShopOwners> ShopOwners { get; set; }
+    // public DbSet<Customer> Customers { get; set; }
     public DbSet<Shop> Shops { get; set; }
+
+    public DbSet<User> Users { get; set; }
+
+    public DbSet<UserLogin> UserLogins { get; set; }
 
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -25,17 +31,13 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Shop>()
+        // modelBuilder.Entity<Shop>()
             
-            .HasOne(s => s.Customer)
-            .WithMany(c => c.Shops)
-            .HasForeignKey(s => s.CustomerId)
-            .OnDelete(DeleteBehavior.Cascade);
-
-        modelBuilder.Entity<Customer>()
-            .HasOne(c => c.Affiliate)
-            .WithMany(a => a.Customers)
-            .HasForeignKey(c => c.AffId);
+   
+        // modelBuilder.Entity<Customer>()
+        //     .HasOne(c => c.Affiliate)
+        //     .WithMany(a => a.Customers)
+        //     .HasForeignKey(c => c.AffId);
 
 
             
@@ -48,10 +50,15 @@ public class AppDbContext : DbContext
                 .HasForeignKey<UserLogin>(e => e.UserId)
                 .HasPrincipalKey<User>(x => x.Userid);
 
-                // entity.HasOne(e => e.ShopOwners)
-                // .WithOne(e => e.User)
-                // .HasForeignKey<ShopOwners>(e => e.UserId)
-                // .HasPrincipalKey<User>(x => x.Userid); 
+                entity.HasOne(e => e.Affiliate)
+                .WithOne(e => e.User)
+                .HasForeignKey<Affiliate>(e => e.Affiliate_Id)
+                .HasPrincipalKey<User>(x => x.Userid); 
+
+                entity.HasOne(e => e.ShopOwners)
+                .WithOne(e => e.User)
+                .HasForeignKey<ShopOwners>(e => e.UserId)
+                .HasPrincipalKey<User>(x => x.Userid); 
 
                 // entity.HasOne(e => e.ShopAttedants)
                 // .WithOne(e => e.User)
@@ -144,6 +151,36 @@ public class AppDbContext : DbContext
                 entity.Property(e => e.Username)
                     .HasColumnName("username");
             });   
+
+             modelBuilder.Entity<Shop>(entity =>
+            {
+                entity.ToTable("shops");
+
+                // entity.HasIndex(e => e.AffiliateId, "affiliateindex");             
+
+                entity.HasIndex(e => e.Datejoined, "datejoinedndex");
+
+                entity.HasIndex(e => e.Lastseen, "lastseenindex");
+
+                entity.HasIndex(e => e.Ownerid, "owneridIndex");
+
+                entity.HasIndex(e => e.Shopid, "shopidIndex");
+
+                entity.HasIndex(e => e.Name, "shopnameindex");
+
+                //entity.HasIndex(e => new { e.Shopid,e.Datejoined,e.Ownerid },"shopiddateownerid");
+                
+                //  entity.HasOne(e => e.ShopSettings)
+                // .WithOne(e => e.Shop)
+                // .HasForeignKey<ShopSettings>(e => e.Shopid)
+                // .HasPrincipalKey<Shop>(x => x.Shopid);
+
+                //  entity.HasOne(e => e.ShopPackages)
+                //     .WithOne(e => e.Shop)
+                //     .HasForeignKey<ShopPackages>(e => e.Shopid)
+                //     .HasPrincipalKey<Shop>(x => x.Shopid);             
+
+            });  
     }
 
     
