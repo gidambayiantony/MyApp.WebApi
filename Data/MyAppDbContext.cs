@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 
+ 
 using MyApp.WebApi.Models;
-namespace MyApp.WebApi.Models;
 public class AppDbContext : DbContext
 {
     public DbSet<Affiliate> Affiliates { get; set; }
@@ -39,111 +39,111 @@ public class AppDbContext : DbContext
 
 
             
-            //  modelBuilder.Entity<User>(entity =>
-            // {
-            //     entity.ToTable("users");
+             modelBuilder.Entity<User>(entity =>
+            {
+                entity.ToTable("users");
 
-            //     entity.HasOne(e => e.UserLogin)
-            //     .WithOne(e => e.User)
-            //     .HasForeignKey<UserLogin>(e => e.UserId)
-            //     .HasPrincipalKey<User>(x => x.Userid);
+                entity.HasOne(e => e.UserLogin)
+                .WithOne(e => e.User)
+                .HasForeignKey<UserLogin>(e => e.UserId)
+                .HasPrincipalKey<User>(x => x.Userid);
 
-            //     // entity.HasOne(e => e.ShopOwners)
-            //     // .WithOne(e => e.User)
-            //     // .HasForeignKey<ShopOwners>(e => e.UserId)
-            //     // .HasPrincipalKey<User>(x => x.Userid); 
+                // entity.HasOne(e => e.ShopOwners)
+                // .WithOne(e => e.User)
+                // .HasForeignKey<ShopOwners>(e => e.UserId)
+                // .HasPrincipalKey<User>(x => x.Userid); 
 
-            //     // entity.HasOne(e => e.ShopAttedants)
-            //     // .WithOne(e => e.User)
-            //     // .HasForeignKey<ShopAttedants>(e => e.UserId)
-            //     // .HasPrincipalKey<User>(x => x.Userid);    
+                // entity.HasOne(e => e.ShopAttedants)
+                // .WithOne(e => e.User)
+                // .HasForeignKey<ShopAttedants>(e => e.UserId)
+                // .HasPrincipalKey<User>(x => x.Userid);    
 
-            //     // entity.HasOne(e => e.SystemUsers)
-            //     // .WithOne(e => e.User)
-            //     // .HasForeignKey<SystemUsers>(e => e.UserId)
-            //     // .HasPrincipalKey<User>(x => x.Userid);             
+                // entity.HasOne(e => e.SystemUsers)
+                // .WithOne(e => e.User)
+                // .HasForeignKey<SystemUsers>(e => e.UserId)
+                // .HasPrincipalKey<User>(x => x.Userid);             
 
-            //     // entity.HasOne(e => e.Customers)
-            //     // .WithOne(e => e.User)
-            //     // .HasForeignKey<Customers>(e => e.UserId)
-            //     // .HasPrincipalKey<User>(x => x.Userid);                          
+                // entity.HasOne(e => e.Customers)
+                // .WithOne(e => e.User)
+                // .HasForeignKey<Customers>(e => e.UserId)
+                // .HasPrincipalKey<User>(x => x.Userid);                          
                
-            //     entity.HasIndex(e => e.Datejoined, "dateJoindIndex");
+                entity.HasIndex(e => e.Datejoined, "dateJoindIndex");
 
-            //     entity.HasIndex(e => e.Email, "emailIndex");
+                entity.HasIndex(e => e.Email, "emailIndex");
 
-            //     entity.HasIndex(e => e.Lastseen, "lastseenIndex");
+                entity.HasIndex(e => e.Lastseen, "lastseenIndex");
 
-            //     entity.HasIndex(e => e.Userid, "userid");
+                entity.HasIndex(e => e.Userid, "userid");
 
-            //     entity.HasIndex(e => e.Username, "usernameIndex");
+                entity.HasIndex(e => e.Username, "usernameIndex");
 
-            //     entity.Property(e => e.Id).HasColumnName("id");              
+                entity.Property(e => e.Id).HasColumnName("id");              
 
-            //     entity.Property(e => e.Actuallocation)
-            //         .HasColumnType("text")
-            //         .HasColumnName("actuallocation");               
+                entity.Property(e => e.Actuallocation)
+                    .HasColumnType("text")
+                    .HasColumnName("actuallocation");               
              
-            //     entity.Property(e => e.Appv).HasColumnName("appv");               
+                entity.Property(e => e.Appv).HasColumnName("appv");               
 
-            //     entity.Property(e => e.CountryCode)
-            //         .HasMaxLength(20)
-            //         .HasColumnName("countrycode");               
+                entity.Property(e => e.CountryCode)
+                    .HasMaxLength(20)
+                    .HasColumnName("countrycode");               
 
-            //     entity.Property(e => e.Datejoined)
-            //         .HasColumnType("datetime")
-            //         .HasColumnName("datejoined");
+                entity.Property(e => e.Datejoined)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datejoined");
 
-            //     entity.Property(e => e.Deleted).HasColumnName("deleted");                
+                entity.Property(e => e.Deleted).HasColumnName("deleted");                
 
-            //     entity.Property(e => e.Email).HasColumnName("email");             
+                entity.Property(e => e.Email).HasColumnName("email");             
 
-            //     entity.Property(e => e.Isapp).HasColumnName("isapp");
+                entity.Property(e => e.Isapp).HasColumnName("isapp");
 
-            //     entity.Property(e => e.Lastseen)
-            //         .HasColumnType("datetime")
-            //         .HasColumnName("lastseen");
+                entity.Property(e => e.Lastseen)
+                    .HasColumnType("datetime")
+                    .HasColumnName("lastseen");
 
-            //     entity.Property(e => e.Lat).HasColumnName("lat");
-            //     entity.Property(e => e.Lon).HasColumnName("lon");
+                entity.Property(e => e.Lat).HasColumnName("lat");
+                entity.Property(e => e.Lon).HasColumnName("lon");
 
-            //     entity.Property(e => e.LocEnabled).HasColumnName("loc_enabled");
+                entity.Property(e => e.LocEnabled).HasColumnName("loc_enabled");
 
-            //     entity.Property(e => e.Locationdescr)
-            //         .HasColumnType("text")
-            //         .HasColumnName("locationdescr");          
+                entity.Property(e => e.Locationdescr)
+                    .HasColumnType("text")
+                    .HasColumnName("locationdescr");          
 
 
-            //     entity.Property(e => e.Password)
-            //         .HasMaxLength(255)
-            //         .HasColumnName("password");
+                entity.Property(e => e.Password)
+                    .HasMaxLength(255)
+                    .HasColumnName("password");
 
-            //     entity.Property(e => e.Phone)
-            //         .HasMaxLength(255)
-            //         .HasColumnName("phone");
+                entity.Property(e => e.Phone)
+                    .HasMaxLength(255)
+                    .HasColumnName("phone");
                 
-            //     entity.Property(e => e.IsPhoneVerified)                   
-            //         .HasColumnName("isPhoneVerified"); 
+                entity.Property(e => e.IsPhoneVerified)                   
+                    .HasColumnName("isPhoneVerified"); 
                 
-            //     entity.Property(e => e.IsEmailVerified)                   
-            //         .HasColumnName("isEmailVerified"); 
+                entity.Property(e => e.IsEmailVerified)                   
+                    .HasColumnName("isEmailVerified"); 
 
-            //     entity.Property(e => e.Profpic)
-            //         .HasColumnType("text")
-            //         .HasColumnName("profpic");             
+                entity.Property(e => e.Profpic)
+                    .HasColumnType("text")
+                    .HasColumnName("profpic");             
 
-            //     entity.Property(e => e.RoleId).HasColumnName("roleid");
+                entity.Property(e => e.RoleId).HasColumnName("roleid");
 
-            //     // entity.Property(e => e.Status)                   
-            //     //     .HasColumnName("status");             
+                // entity.Property(e => e.Status)                   
+                //     .HasColumnName("status");             
 
-            //     entity.Property(e => e.Userid)
-            //         .HasMaxLength(250)
-            //         .HasColumnName("userid");
+                entity.Property(e => e.Userid)
+                    .HasMaxLength(250)
+                    .HasColumnName("userid");
 
-            //     entity.Property(e => e.Username)
-            //         .HasColumnName("username");
-            // });   
+                entity.Property(e => e.Username)
+                    .HasColumnName("username");
+            });   
     }
 
     
